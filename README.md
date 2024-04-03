@@ -1,2 +1,2 @@
-# Simple-e-Commerce-PHP
- A Simple eCommerce website using PHP
+# Simple-e-Commerce
+ A Simple eCommerce website
