@@ -1,137 +1,78 @@
-.mask{
-    position: static;
-    height: auto;
-    background: transparent !important;
-    padding: 32px 0;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;    
-    -webkit-box-pack: center;
-    justify-content: center;
-    overflow-y: overlay !important;
-    scrollbar-width: thin;
-    scrollbar-color: #ccc transparent;
-    scrollbar-gutter: stable both-edges;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/*Responsive Page*/
+@media (max-width: 1536px) {
+    .container {
+        max-width: 1280px;
+    }
 }
 
-.baseDialog {
-    min-height: 575px;
-    display: flex;
-    justify-content: initial;
-    align-items: initial;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    position: relative;
-    animation: 15s ease 0s 1 normal none running fadeIn;
-    width: 494px;
-    padding: 36px 40px;
-    border-radius: 4px;
-    max-height: min(640px, 90% + 57.6px, 100%);
-    background-color: #fff;
-    z-index: 0;
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1024px;
+    }
 }
 
-.header {
-    text-align: center;
-    font-size: 20px;
-    color: #222;
-    line-height: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
+@media (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
 }
 
-.title {
-    padding-bottom: 0;
-    font-size: 20px;
-    line-height: 24px;
+@media (max-width: 768px) {
+    .container {
+        max-width: 640px;
+    }
 }
 
-.container {
-    margin-top: 3opx;
+@media (max-width: 640px) {
+    .container {
+        max-width: 475px;
+    }
 }
 
-.labelText {
-    font-size: 14px;
-    color: #000;
-    line-height: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
+@media (max-width: 475px) {
+    .container {
+        width: 100%;
+    }
 }
 
-.inputGroupEmail {
-    -webkit-box-flex: 1;
-    flex: 1;
-    position: relative;
-    height: 45px;
-    color: #222;
-    background: #fff;
-    border-radius: 4px;
-    padding: 0 42px 0 0;
-    border: 1px solid #ddd;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+    background-image: url('/Simple-e-Commerce-PHP/Images/6.jpg');
 }
 
-input {
-    font-weight: 700;
-    display: block;
-    width: 110%;
-    height: 100%;
-    overflow: hidden;
-    font-size: 18px;
-    line-height: normal;
-    color: #222;
-    background: #fff;
-    text-align: left;
+.img-fluid {
+    width: 290px;
 }
 
-.clear {
-    right: 12px;
-    top: 9px;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    display: flex;
-    visibility: hidden;
+.box-area {
+    width: 950px;
 }
 
-.loginBtn {
-    width: 100%;
-    height: 48px;
-    font-size: 16px;
-    line-height: 20px;
-    color: #fff;
+.left-box {
     background: #00c6c8;
-    border-radius: 26px;
-    font-weight: 600;
-    margin: 20px auto 0;
-    padding: 0 19px;
-    display: block;
-    cursor: pointer;
 }
 
-.trouble {
-    margin: 14px auto 0;
-    font-size: 13px;
-    line-height: 17px;
-    text-align: center;
-    text-decoration: underline;
-    color: #888;
-    cursor: pointer;
+.right-box {
+    padding: 45px 35px 45px 45px;
 }
 
-.inputGroupEmail:hover input[type="text"] {
-    display: block;
-    border: 1px solid #222;
+.label {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
 }
 
-.inputGroupEmail input[type="text"] {
-    border: 1px solid #ddd;
+.label-two {
+    width: 18rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.inputGroupEmail:focus-within input[type="text"] {
-    border-color: transparent;
+.googil {
+    width: 22px;
 }
 
-.inputGroupEmail.active input[type="text"] {
-    border-color: #ddd; /* Ensure border appears when input is active */
+::placeholder {
+    font-size: 18px;
 }
