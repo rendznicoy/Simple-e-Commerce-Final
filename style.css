@@ -76,3 +76,17 @@ body {
 ::placeholder {
     font-size: 18px;
 }
+
+#show {
+    width: 22px;
+}
+
+#hide {
+    width: 22px;
+}
+
+.label-forgot {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 100px;
+}
