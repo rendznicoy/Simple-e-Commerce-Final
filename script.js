@@ -18,15 +18,3 @@ togglePassword.addEventListener('click', function(e) {
         hide.style.display = 'inline-block';
     }
 });
-
-document.getElementById("sign").addEventListener('click', async function(e) {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    
-    // Your authentication logic here...
-    // Assuming authentication is successful, redirect to another page
-    if (authenticationSuccessful) {
-        window.location.href = "admin-home.html";
-    }
-});
