@@ -32,29 +32,8 @@ function closeMenu() {
   document.getElementById("menu-close").style.display = "none";
 }
 
-// Function to open the logout modal
-function openLogoutModal() {
-  var modal = document.getElementById("logoutModal");
-  modal.style.display = "block";
-}
-
-// Function to close the logout modal
-function closeLogoutModal() {
-  var modal = document.getElementById("logoutModal");
-  modal.style.display = "none";
-}
-
 // Function to handle logout
 function logout() {
   // Perform logout actions here
   window.location.href = "admin.html"; // Example: Redirect to logout page
 }
-
-// Event listener for "Sign Out" link
-document.addEventListener("DOMContentLoaded", function () {
-  var signOutLink = document.querySelector(".menu-bar a");
-  signOutLink.addEventListener("click", function (event) {
-    event.preventDefault();
-    openLogoutModal();
-  });
-});
