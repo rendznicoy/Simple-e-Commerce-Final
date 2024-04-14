@@ -17,6 +17,10 @@
       href="/Simple-e-Commerce-PHP/Images/ShopSphere.png"
       type="image/x-icon"
     />
+    <script
+      src="https://kit.fontawesome.com/d9be89f74b.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body style="background-image: none; background-color: #fff">
     <div class="top-nav-bar">
@@ -42,14 +46,11 @@
       <div class="row">
         <div class="col-12">
           <button
-            class="btn btn-primary"
+            class="btn btn-primary add"
             data-bs-toggle="modal"
             data-bs-target="#productForm"
           >
             Add Product <i class="fa-solid fa-plus"></i>
-          </button>
-          <button class="btn btn-primary">
-            Delete Product <i class="fa-solid fa-minus"></i>
           </button>
         </div>
       </div>
@@ -71,16 +72,43 @@
             <!--Sample-->
             <tbody id="data">
               <td>1</td>
+              <td>
+                <img
+                  src="/Simple-e-Commerce-PHP/Images/1.jpg"
+                  width="50"
+                  height="50"
+                />
+              </td>
+              <td>James</td>
+              <td>1,000,000</td>
+              <td>Lamion</td>
+              <td>Watery</td>
+              <td>
+                <button
+                  class="btn btn-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#viewForm"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
             </tbody>
           </table>
         </div>
       </div>
     </section>
+    <!--Main Modal-->
     <div class="modal fade" id="productForm" data-bs-backdrop="false">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Fill in the Form</h4>
+            <h4 class="modal-title">Fill in Product Information</h4>
             <button
               type="button"
               class="btn-close"
@@ -88,18 +116,373 @@
               aria-label="Close"
             ></button>
           </div>
+          <div class="modal-body">
+            <form action="#" id="myForm">
+              <div class="card imgholder" id="card">
+                <label for="imgInput" class="upload"
+                  ><i class="fa-solid fa-plus"></i>
+                  <input
+                    autocomplete="off"
+                    type="file"
+                    id="imgInput"
+                    class="imgInput"
+                    accept="image/png, image/jpeg"
+                    onchange="getFile(event)"
+                    required
+                  />
+                  <!-- Only show the icon -->
+                </label>
+              </div>
+              <div class="inputField">
+                <div>
+                  <label for="name">Product ID:</label>
+                  <input type="number" name="" id="identification" />
+                </div>
+                <div>
+                  <label for="name">Product Name:</label>
+                  <input type="text" name="" id="name" />
+                </div>
+                <div>
+                  <label for="name">Product Price (PHP):</label>
+                  <input type="number" name="" id="price" />
+                </div>
+                <div>
+                  <label for="name">Product Description:</label>
+                  <input type="text" name="" id="desc" />
+                </div>
+                <div>
+                  <label for="name">Product Seller:</label>
+                  <input type="text" name="" id="seller" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="submit"
+              form="myForm"
+              class="btn btn-primary submit"
+              id="submit"
+            >
+              Add Product
+            </button>
+          </div>
+          <div class="bar">
+            <div class="progress"></div>
+            <div class="progressBar"></div>
+          </div>
         </div>
       </div>
     </div>
-    <script
-      src="https://kit.fontawesome.com/d9be89f74b.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/Simple-e-Commerce-PHP/script.js"></script>
+    <!--View Modal-->
+    <div class="modal fade" id="viewForm" data-bs-backdrop="false">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Product Information</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" id="myForm">
+              <div class="card imgholder">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+              <div class="inputField">
+                <div>
+                  <label for="name">Product ID:</label>
+                  <input type="number" name="" id="identification" disabled />
+                </div>
+                <div>
+                  <label for="name">Product Name:</label>
+                  <input type="text" name="" id="name" disabled />
+                </div>
+                <div>
+                  <label for="name">Product Price (PHP):</label>
+                  <input type="number" name="" id="price" disabled />
+                </div>
+                <div>
+                  <label for="name">Product Description:</label>
+                  <input type="text" name="" id="desc" disabled />
+                </div>
+                <div>
+                  <label for="name">Product Seller:</label>
+                  <input type="text" name="" id="seller" disabled />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="/Simple-e-Commerce-PHP/script.js"></script>
+    <script type="module">
+      /* var firebaseConfig = {
+              apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
+              authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
+              projectId: "simple-ecommerce-2ae23",
+              storageBucket: "simple-ecommerce-2ae23.appspot.com",
+              messagingSenderId: "649449198685",
+              appId: "1:649449198685:web:c305061725d287ab30e9b4",
+              measurementId: "G-R02NLXEX21",
+              databaseURL:
+                "simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
+            };
+
+            var app = firebase.initializeApp(firebaseConfig);
+            var storage = firebase.storage();
+            var database = firebase.database();
+
+            function writeItemData(
+              itemImage,
+              itemID,
+              itemName,
+              itemPrice,
+              itemDescription,
+              itemSeller
+            ) {
+              var itemData = {
+                itemID: itemID,
+                itemName: itemName,
+                price: itemPrice,
+                description: itemDescription,
+                seller: itemSeller,
+              };
+
+              var storageRef = storage.ref(itemID + ".jpg");
+              storageRef.put(itemImage).then(function (snapshot) {
+                snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                  itemData.imageUrl = downloadURL;
+                  // Replace '/' in the email with ',' to avoid Firebase path issues
+                  database
+                    .ref("items/" + itemID)
+                    .set(itemData)
+                    .then(() => alert("Data written to items"))
+                    .catch((error) => alert("Error writing to items: ", error));
+                });
+              });
+            }
+
+            firebase.auth().onAuthStateChanged(function (user) {
+              if (user) {
+                document
+                  .querySelector(".submit")
+                  .addEventListener("click", function () {
+                    var itemImage = document.getElementById("imgInput").files[0];
+                    var itemID = document.getElementById("identification").value;
+                    var itemName = document.getElementById("name").value;
+                    var itemPrice = document.getElementById("price").value;
+                    var itemDescription =
+                      document.getElementById("description").value;
+                    var itemSeller = document.getElementById("seller").value;
+
+                    if (
+                      !itemImage ||
+                      !itemID ||
+                      !itemName ||
+                      !itemPrice ||
+                      !itemDescription ||
+                      !itemSeller
+                    ) {
+                      alert("Please fill out all fields");
+                      return;
+                    }
+
+                    writeItemData(
+                      itemImage,
+                      itemName,
+                      itemPrice,
+                      itemDescription,
+                      itemSeller
+                    );
+
+                    // alert('Item has been successfully added!');
+                    document.getElementById("itemImage").value = "";
+                    document.getElementById("itemname").value = "";
+                    document.getElementById("price").value = "";
+                    document.getElementById("description").value = "";
+                    document.getElementById("seller").value = "";
+                  });
+              } else {
+                console.log("No user is signed in");
+              }
+            }); */
+      /* document.addEventListener("DOMContentLoaded", function () {
+              const firebaseConfig = {
+                // Your Firebase configuration
+                apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
+                authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
+                projectId: "simple-ecommerce-2ae23",
+                storageBucket: "simple-ecommerce-2ae23.appspot.com",
+                messagingSenderId: "649449198685",
+                appId: "1:649449198685:web:c305061725d287ab30e9b4",
+                measurementId: "G-R02NLXEX21",
+                databaseURL:
+                  "simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
+              };
+              // Initialize Firebase
+              const app = firebase.initializeApp(firebaseConfig);
+              const db = firebase.database(app);
+
+              // Function to handle form submission
+              document
+                .getElementById("submit")
+                .addEventListener("click", function (e) {
+                  e.preventDefault();
+
+                  // Retrieve product information from the modal fields
+                  const productId = document.getElementById("identification").value;
+                  const productName = document.getElementById("name").value;
+                  const productPrice = document.getElementById("price").value;
+                  const productDesc = document.getElementById("desc").value;
+                  const productSeller = document.getElementById("seller").value;
+                  const productImage = document.getElementById("imgInput").files[0];
+
+                  // Perform validation if needed
+
+                  // Save product to Firebase database
+                  const productsRef = firebase.database().ref("products");
+                  const newProductRef = productsRef.push(); // Generate a new unique key for the product
+                  const newProductId = newProductRef.key;
+
+                  // Upload image to Firebase storage (if needed)
+
+                  // Save product data to the database
+                  newProductRef
+                    .set({
+                      productId: productId,
+                      productName: productName,
+                      productPrice: productPrice,
+                      productDesc: productDesc,
+                      productSeller: productSeller,
+                      // You can add more fields here as needed
+                    })
+                    .then(() => {
+                      alert("Product added successfully!");
+                      // Clear the form fields
+                      document.getElementById("myForm").reset();
+                      // Close the modal
+                      const productModal = new bootstrap.Modal(
+                        document.getElementById("productForm")
+                      );
+                      productModal.hide();
+                    })
+                    .catch((error) => {
+                      console.error("Error adding product:", error);
+                      alert("Error adding product. Please try again.");
+                    });
+                });
+            });
+
+            // Logout function
+            function logout() {
+              localStorage.removeItem("rememberedUser");
+              window.location.href = "admin.html"; // Redirect to the login page
+            } */
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+      import {
+        getStorage,
+        ref as storageRef,
+        uploadBytes,
+      } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
+        authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
+        projectId: "simple-ecommerce-2ae23",
+        storageBucket: "simple-ecommerce-2ae23.appspot.com",
+        messagingSenderId: "649449198685",
+        appId: "1:649449198685:web:c305061725d287ab30e9b4",
+        measurementId: "G-R02NLXEX21",
+        databaseURL:
+          "simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      //Fetch Database
+      const db = getDatabase(app);
+
+      const storage = getStorage(app);
+
+      const auth = getAuth(app);
+
+      document
+        .getElementById("submit")
+        .addEventListener("click", async function (e) {
+          e.preventDefault();
+
+          const productId = document.getElementById("identification").value;
+          const productName = document.getElementById("name").value;
+          const productPrice = document.getElementById("price").value;
+          const productDesc = document.getElementById("desc").value;
+          const productSeller = document.getElementById("seller").value;
+          const productImage = document.getElementById("imgInput").files[0];
+
+          if (
+            !productId ||
+            !productName ||
+            !productPrice ||
+            !productDesc ||
+            !productSeller ||
+            !productImage
+          ) {
+            alert("Please fill out all fields");
+            return;
+          }
+
+          try {
+            // Upload image to Firebase Storage
+            const storageRef = ref(
+              storage,
+              `product_images/${productId}_${productImage.name}`
+            );
+            await uploadBytes(storageRef, productImage);
+            const imageUrl = await getDownloadURL(storageRef);
+
+            // Save product data to Firebase Realtime Database
+            const productsRef = ref(db, "products");
+            await set(child(productsRef, productId), {
+              productId: productId,
+              productName: productName,
+              productPrice: productPrice,
+              productDesc: productDesc,
+              productSeller: productSeller,
+              imageUrl: imageUrl,
+            });
+
+            // Reset form and close modal
+            document.getElementById("myForm").reset();
+            const productModal = new bootstrap.Modal(
+              document.getElementById("productForm")
+            );
+            productModal.hide();
+
+            alert("Product added successfully!");
+          } catch (error) {
+            console.error("Error adding product:", error);
+            alert("Error adding product. Please try again.");
+          }
+        });
+    </script>
   </body>
 </html>
