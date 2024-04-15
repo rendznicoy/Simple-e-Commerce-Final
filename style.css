@@ -25,18 +25,6 @@
   .fa-basket-shopping {
     font-size: 14px !important;
   }
-  .side-menu {
-    width: 16% !important;
-    z-index: 20;
-    position: fixed;
-    font-size: 12px !important;
-  }
-  .side-menu ul li ul {
-    top: 133px;
-  }
-  .side-menu ul li:hover ul {
-    margin-left: 12.9%;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -56,18 +44,6 @@
   }
   .fa-basket-shopping {
     font-size: 12px !important;
-  }
-  .side-menu {
-    width: 20% !important;
-    z-index: 20;
-    position: fixed;
-    font-size: 12px !important;
-  }
-  .side-menu ul li ul {
-    top: 133px;
-  }
-  .side-menu ul li:hover ul {
-    margin-left: 15.9% !important;
   }
 }
 
@@ -92,18 +68,6 @@
   .fa-basket-shopping {
     font-size: 12px !important;
   }
-  .side-menu {
-    width: 25% !important;
-    z-index: 20;
-    position: fixed;
-    font-size: 12px !important;
-  }
-  .side-menu ul li ul {
-    top: 133px;
-  }
-  .side-menu ul li:hover ul {
-    margin-left: 19.5% !important;
-  }
 }
 
 @media (max-width: 640px) {
@@ -126,18 +90,6 @@
   }
   .fa-basket-shopping {
     font-size: 12px !important;
-  }
-  .side-menu {
-    width: 30% !important;
-    z-index: 20;
-    position: fixed;
-    font-size: 12px !important;
-  }
-  .side-menu ul li ul {
-    top: 133px;
-  }
-  .side-menu ul li:hover ul {
-    margin-left: 23.5% !important;
   }
 }
 
@@ -170,19 +122,6 @@
 
   .fa-basket-shopping {
     font-size: 12px !important;
-  }
-  .side-menu {
-    width: 50% !important;
-    z-index: 20;
-    position: fixed;
-    font-size: 12px !important;
-    display: none;
-  }
-  .side-menu ul li ul {
-    top: 133px;
-  }
-  .side-menu ul li:hover ul {
-    margin-left: 40.5% !important;
   }
 }
 
@@ -323,52 +262,6 @@ body {
   margin-right: 5px;
 }
 
-.side-menu {
-  height: 79%;
-  width: 15%;
-  font-size: 14px;
-  float: left;
-  z-index: 2;
-  background-color: #ddd;
-  display: none;
-}
-
-.side-menu ul {
-  margin-left: 10px;
-}
-
-.side-menu ul li {
-  list-style: none;
-  font-weight: bold;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.side-menu ul li:hover {
-  color: #00c6c8;
-}
-
-.side-menu ul li ul {
-  display: none;
-  z-index: 10;
-  top: 77px;
-}
-
-.side-menu ul li:hover ul {
-  display: block;
-  height: 400px;
-  margin-left: 12.3%;
-  padding: 0 100px 10px 10px;
-  position: fixed;
-  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
-}
-
-.fa-angle-right {
-  margin-top: 4px;
-  margin-right: 8px;
-  float: right;
-}
-
 #menu-btn {
   font-size: 30px;
   margin: 10px;
@@ -459,6 +352,12 @@ td button li {
   color: #fff;
 }
 
+.delete {
+  background: red;
+  color: #fff;
+  border: none;
+}
+
 .modal-body form {
   display: flex;
   justify-content: space-between;
@@ -484,6 +383,7 @@ td button li {
 .card.imgholder {
   width: 400px; /* Adjust width of the image holder */
   margin-right: 20px; /* Add margin between the image holder and input fields */
+  height: 110px !important;
 }
 
 .inputField {
@@ -506,15 +406,6 @@ td button li {
   background-color: #00c6c8;
   border: 1px solid #00c6c8;
   margin-left: 670px;
-}
-
-.delete {
-  background-color: #ff0000;
-  border: 1px solid #ff0000;
-}
-
-.delete:hover {
-  background-color: blue;
 }
 
 .modal-body form .imgholder {
@@ -583,20 +474,20 @@ form .inputField > div input {
 }
 
 .modal-footer .submit {
-  font-size: 18px;
+  font-size: 20px;
+  padding: 20px 25px;
+  background: #00c6c8;
+  color: white;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 300;
+  margin-right: 120px;
 }
 
 #viewForm form .inputField > div input {
   color: #000;
   font-size: 18px;
-}
-
-.white-icon {
-  color: #fff !important;
-}
-
-.imgInput {
-  display: none;
 }
 
 .fa-plus {
@@ -605,5 +496,148 @@ form .inputField > div input {
 
 .upload {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 20px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  cursor: pointer;
+}
+
+.register {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.register a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  margin-left: 375px;
+  margin-top: 250px;
+}
+
+.main-content h1 {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1px;
+  margin: 10px 0 20px;
+}
+
+.main-content h3 {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 10px 0 20px;
+}
+
+.main-content p {
+  font-size: 12px;
+  color: #00c6c8;
+  margin: 10px 0 20px;
+}
+
+.bg-wall {
+  margin-top: 10vh;
+  margin-left: 50px;
+  margin-right: 5vh;
+  border-radius: 15px;
+  height: 500px;
+}
+
+.bg {
+  margin-left: 725px;
+  margin-top: -700px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.prof {
+  font-size: 200px;
+  margin-bottom: 25px;
+}
+
+/* CSS for Confirmation Modal */
+.confirm .modal-dialog {
+  max-width: 400px;
+}
+
+.confirm .modal-content {
+  border: none;
+}
+
+.confirm .modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.confirm .modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+
+.confirm .modal-body {
+  padding: 20px;
+}
+
+.confirm .modal-footer .btn {
+  min-width: 80px;
+}
+
+/* Center the modal vertically */
+.modal.fade:not(.show).modal-dialog-centered {
+  display: flex !important;
+  align-items: center;
+}
+
+/* Center the modal horizontally */
+.modal.fade:not(.show).modal-dialog-centered .modal-dialog {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+}
+
+#confirmYesButton:hover {
+  background-color: #ff7276;
+}
+
+.minus {
+  background: red;
+  border: none;
+}
+
+.minus:hover {
+  background: #ff7276;
+}
+
+.confirm {
+  width: 100%; /* Adjust width of the image holder */
+  margin-right: 20px; /* Add margin between the image holder and input fields */
+  height: 110px !important;
+}
+
+.prodLabel {
+  text-align: center;
+}
+
+.deleteBtn {
+  margin-right: 220px;
+  background: red;
+  border: none;
+}
+
+.deleteBtn:hover {
+  background: #ff7276;
 }

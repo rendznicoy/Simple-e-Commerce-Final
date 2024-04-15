@@ -19,18 +19,6 @@ togglePassword.addEventListener("click", function (e) {
     hide.style.display = "inline-block";
   }
 });
-/*Open Side Menu*/
-function openMenu() {
-  document.getElementById("side-menu").style.display = "block";
-  document.getElementById("menu-btn").style.display = "none";
-  document.getElementById("menu-close").style.display = "block";
-}
-/*Close Side Menu*/
-function closeMenu() {
-  document.getElementById("side-menu").style.display = "none";
-  document.getElementById("menu-btn").style.display = "block";
-  document.getElementById("menu-close").style.display = "none";
-}
 
 // Function to handle logout
 function logout() {
@@ -38,8 +26,14 @@ function logout() {
   window.location.href = "admin.html"; // Example: Redirect to logout page
 }
 
-function getFile(e) {}
+/* var fileItem;
+var fileName;
 
+function getFile(e) {
+  fileItem = e.target.files[0];
+  fileName = fileItem.name;
+}
+ */
 /* function getImagePreview(event) {
   var image = URL.createObjectURL(event.target.files[0]);
   var imageDiv = document.getElementById("card");
