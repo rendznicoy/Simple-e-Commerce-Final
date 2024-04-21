@@ -26,7 +26,13 @@
             src="/Simple-e-Commerce-PHP/Images/shopsphere-big.png"
             class="logo"
         /></a>
-        <input type="text" class="form-control search-bar" />
+        <input
+          type="text"
+          class="form-control search-bar"
+          id="searchInput"
+          oninput="searchTable()"
+          placeholder="Search..."
+        />
         <span class="input-group-text"
           ><i class="fa-solid fa-magnifying-glass"></i
         ></span>
@@ -82,18 +88,12 @@
             </thead>
             <!--Sample-->
             <tbody id="data">
-              <td>1</td>
-              <td>
-                <img
-                  src="/Simple-e-Commerce-PHP/Images/1.jpg"
-                  width="50"
-                  height="50"
-                />
-              </td>
-              <td>James</td>
-              <td>1,000,000</td>
-              <td>Lamion</td>
-              <td>Watery</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
               <td>
                 <button
                   class="btn btn-success"
@@ -104,13 +104,6 @@
                 </button>
                 <button class="btn btn-primary">
                   <i class="fa-solid fa-pencil"></i>
-                </button>
-                <button
-                  class="btn btn-danger"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteForm"
-                >
-                  <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
             </tbody>
@@ -259,8 +252,9 @@
                     type="submit"
                     form="myForm"
                     class="btn btn-primary deleteBtn"
-                    id="submit"
+                    id="deleteBtn"
                     role="button"
+                    onclick="remove()"
                   >
                     Delete Product
                   </button>
@@ -398,10 +392,6 @@
                     <button class="btn btn-primary edit-product" data-bs-toggle="modal" data-bs-target="#editForm" data-product-id="${productId}">
                       <i class="fa-solid fa-pencil"></i>
                     </button>
-                    <button class="btn btn-danger delete-product"
-                    data-bs-toggle="modal" data-bs-target="#confirmModal"  data-product-id="${productId}">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
                   </td>
                 `;
               tbody.appendChild(row);
@@ -415,28 +405,49 @@
       // Call the function to display products when the page loads
       window.onload = displayProducts;
 
-      function deleteItem() {
+      function remove() {
         const itemID = document.getElementById("deleteID").value;
-        const itemsRef = firebase.database().ref("items/" + itemID);
-        if (itemID == "") {
-          alert("Please enter the product ID to delete");
-          return;
-        }
-        var itemData=snapshot.val();
-        if(itemData) {
-          var imageExtension = imageData.imageExtension;
 
-          var storageRef = firebase.storage().ref()
-        }
-        // Remove the item from the database
-        itemsRef
-          .remove()
-          .then(function () {
-            alert("Item deleted successfully");
-            // You can perform additional actions here if needed
+        // Get the imageURL associated with the itemID
+        database
+          .ref("items/" + itemID + "/imageUrl")
+          .once("value")
+          .then((snapshot) => {
+            const imageURL = snapshot.val();
+
+            // If imageURL is available, delete the image from storage
+            if (imageURL) {
+              // Construct the path of the image in storage
+              const storagePath = imageURL.split("?")[0].split("/").pop();
+              const storageRef = firebase.storage().ref().child(storagePath);
+
+              // Delete the image from storage
+              storageRef
+                .delete()
+                .then(() => {
+                  console.log("Image deleted successfully from storage");
+                })
+                .catch((error) => {
+                  console.error("Error deleting image from storage: ", error);
+                });
+            } else {
+              console.log("No image associated with the itemID");
+            }
           })
-          .catch(function (error) {
-            alert("Error deleting item: ", error);
+          .catch((error) => {
+            console.error("Error fetching imageURL from the database: ", error);
+          });
+
+        // Remove the item from the database
+        database
+          .ref("items/" + itemID)
+          .remove()
+          .then(() => {
+            console.log("Item deleted successfully from the database");
+            alert("Item has been successfully deleted!");
+          })
+          .catch((error) => {
+            console.error("Error deleting item from database: ", error);
           });
       }
     </script>

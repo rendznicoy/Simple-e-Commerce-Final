@@ -182,10 +182,12 @@ body {
 
 #show {
   width: 22px;
+  height: 29px !important;
 }
 
 #hide {
   width: 22px;
+  height: 29px !important;
   display: none;
 }
 
@@ -640,4 +642,66 @@ form .inputField > div input {
 
 .deleteBtn:hover {
   background: #ff7276;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal-width columns */
+  gap: 10px; /* Gap between columns */
+}
+
+.column {
+  padding: 200px;
+  text-align: center;
+}
+
+.item {
+  /* border: 1px solid #ccc; */
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.item img {
+  width: 100%;
+}
+
+.item h2 {
+  font-size: 20px;
+}
+
+.item p {
+  font-size: 18px;
+}
+
+.item img {
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+}
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #125dac54;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.form-control.form-control-lg {
+  height: 25px !important; /* Set a fixed height */
+}
+
+.input-group.mb-1 {
+  display: flex;
+  align-items: center;
+}
+
+.input-group.mb-1 input[type="password"] {
+  flex: 1;
+}
+
+.input-group.mb-1 button {
+  flex-shrink: 0;
+  margin-top: 0;
 }

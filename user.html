@@ -55,10 +55,107 @@
     <section class="bg">
       <img src="/Simple-e-Commerce-PHP/Images/bg.png" alt="" class="bg-wall" />
     </section>
-    <script src="/Simple-e-Commerce-PHP/script.js"></script>
-    <script
-      src="https://kit.fontawesome.com/d9be89f74b.js"
-      crossorigin="anonymous"
-    ></script>
+    <div class="grid-container">
+      <div class="column">
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="colum">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="column">
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2024 ShopSphere. All rights reserved.</p>
+    </footer>
   </body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+  <script>
+    /*  // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import {
+      getDatabase,
+      ref,
+      set,
+    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"; */
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
+      authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
+      projectId: "simple-ecommerce-2ae23",
+      storageBucket: "simple-ecommerce-2ae23.appspot.com",
+      messagingSenderId: "649449198685",
+      appId: "1:649449198685:web:c305061725d287ab30e9b4",
+      measurementId: "G-R02NLXEX21",
+      databaseURL:
+        "simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+
+    // Get a reference to the items in the database
+    var itemsRef = database.ref("items");
+
+    itemsRef.on("value", function (snapshot) {
+      var items = snapshot.val();
+      var gridContainer = document.querySelector(".grid-container");
+      gridContainer.innerHTML = "";
+
+      for (var itemID in items) {
+        var item = items[itemID];
+
+        var columnDiv = document.createElement("div");
+        columnDiv.className = "column";
+
+        var itemDiv = document.createElement("div");
+        itemDiv.className = "item";
+
+        var img = document.createElement("img");
+        img.src = item.imageUrl;
+
+        var h2 = document.createElement("h2");
+        h2.textContent = item.itemName;
+
+        var p = document.createElement("a");
+        p.textContent = "PHP " + item.itemPrice + ".00";
+
+        var d = document.createElement("p");
+        d.textContent = "Product Description: " + item.itemDescription;
+
+        var addToCart = document.createElement("button");
+        addToCart.textContent = "Add to Cart";
+
+        itemDiv.appendChild(img);
+        itemDiv.appendChild(h2);
+        itemDiv.appendChild(p);
+        itemDiv.appendChild(d);
+        itemDiv.appendChild(addToCart);
+
+        columnDiv.appendChild(itemDiv);
+
+        gridContainer.appendChild(columnDiv);
+      }
+    });
+  </script>
+  <script src="/Simple-e-Commerce-PHP/script.js"></script>
+  <script
+    src="https://kit.fontawesome.com/d9be89f74b.js"
+    crossorigin="anonymous"
+  ></script>
 </html>
