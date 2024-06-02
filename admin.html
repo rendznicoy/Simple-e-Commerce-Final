@@ -115,7 +115,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <button class="btn btn-lg btn-light w-100 fs-6" disabled>
+            <button id="google" class="btn btn-lg btn-light w-100 fs-6">
               <img
                 src="/Simple-e-Commerce-PHP/Images/google.png"
                 class="googil me-2"
@@ -131,6 +131,10 @@
           <div class="row register">
             <small style="text-align: center">Don't have an account?</small
             ><a href="register.html">Register</a>
+          </div>
+          <div class="hidden">
+            <h3>Email Verification Status:</h3>
+            <h5 id="status">Nan</h5>
           </div>
         </div>
       </div>
@@ -151,6 +155,13 @@
         child,
       } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        onAuthStateChanged,
+        sendEmailVerification,
+      } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -173,6 +184,30 @@
 
       //Fetch Database
       const db = getDatabase(app);
+
+      //Auth
+      const auth = getAuth(app);
+      const provider = new GoogleAuthProvider();
+
+      let status = document.getElementById("status");
+      //Function to handle Google Login
+      const googleLogin = document.getElementById("google");
+      googleLogin.addEventListener("click", function () {
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            sendEmailVerification(auth.currentUser).then(() => {
+              console.log("Email Verification Sent");
+            });
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const user = result.user;
+            console.log(user);
+            status.textContent = user.emailVerified;
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      });
 
       // Function to handle "Remember Me" checkbox
       document

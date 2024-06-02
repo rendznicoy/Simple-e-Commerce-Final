@@ -750,3 +750,73 @@ button {
   background-color: #ffffff; /* Example background color */
   /* Add any other styling properties you want for the navbar */
 }
+
+.card > .header:first-child {
+  padding-top: 50px;
+  padding-left: 342px;
+  padding-right: 342px;
+  padding-bottom: 50px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card > .header {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  background: #00c6c8;
+  color: rgba(24, 49, 83, 1);
+}
+
+.padding-y-4xl {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.card > .section {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  color: rgba(24, 49, 83, 1);
+}
+
+.card > .text-left {
+  text-align: left;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.margin-bottom-md {
+  margin-bottom: 1.5rem;
+}
+
+.h4 {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.margin-bottom-2xl {
+  margin-bottom: 3rem;
+}
+
+p {
+  margin-top: auto;
+  line-height: 1.5;
+}
+
+.block {
+  display: block;
+  width: 100%;
+}
+
+.help {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #fff;
+}
