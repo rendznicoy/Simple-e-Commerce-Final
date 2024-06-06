@@ -23,7 +23,7 @@ togglePassword.addEventListener("click", function (e) {
 // Function to handle logout
 function logout() {
   // Perform logout actions here
-  window.location.href = "admin.html"; // Example: Redirect to logout page
+  window.location.href = "index.html"; // Example: Redirect to logout page
 }
 
 // JavaScript function to handle the search functionality
