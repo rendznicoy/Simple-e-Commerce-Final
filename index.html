@@ -5,607 +5,196 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShopSphere | Admin Home</title>
+  <title>ShopSphere | Admin Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="Images/ShopSphere.png" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/d9be89f74b.js" crossorigin="anonymous"></script>
 </head>
 
-<body style="background-image: none; background-color: #fff">
-  <div class="top-nav-bar">
-    <div class="search-box">
-      <a href="admin-home.html">
-        <img src="Images/shopsphere-big.png" class="logo" /></a>
-      <input type="text" class="form-control search-bar" id="searchInput" oninput="searchTable()"
-        placeholder="Search..." />
-      <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-    </div>
-    <div class="menu-bar">
-      <ul>
-        <li>
-          <a href="admin-home.html"><i class="fa-solid fa-warehouse"></i> Product List</a>
-        </li>
-        <li>
-          <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
-        </li>
-        <li>
-          <a onclick="logout()">Sign Out</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <section class="p-3">
-    <div class="row">
-      <div class="col-12">
-        <button class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#productForm">
-          Add Product <i class="fa-solid fa-plus"></i>
-        </button>
-        <button class="btn btn-primary minus" data-bs-toggle="modal" data-bs-target="#deleteForm">
-          Delete Product <i class="fa-solid fa-minus"></i>
-        </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <table class="table table-stripped table-hover mt-3 text-center table-bordered">
-          <thead>
-            <tr>
-              <th>Product ID</th>
-              <th>Product Image</th>
-              <th>Product Name</th>
-              <th>Product Price</th>
-              <th>Product Description</th>
-            </tr>
-          </thead>
-          <!--Sample-->
-          <tbody id="data">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#viewForm">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-              <button class="btn btn-primary">
-                <i class="fa-solid fa-pencil"></i>
-              </button>
-            </td>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-  <!--Main Modal-->
-  <div class="modal fade" id="productForm" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Fill in Product Information</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<body>
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounder-5 p-3 bg-white shadow box-area">
+      <div class="col-md-6 rounder-4 d-flex justify-content-center align-items-center flex-column left-box">
+        <div class="bg-image mb-3">
+          <img src="Images/shopsphere-big.png" class="img-fluid" />
         </div>
-        <div class="modal-body">
-          <form action="#" id="myForm">
-            <div class="card imgholder" id="card">
-              <label for="imgInput" class="upload"></label>
-              <input autocomplete="off" type="file" id="imgInput" class="imgInput" accept="image/*" required />
-              <!-- Only show the icon -->
+        <p class="text-white fs-2 label">ShopSphere</p>
+        <small class="text-white text-wrap text-center label-two">Explore. Discover. <br />ShopSphere: Your Gateway to
+          Limitless
+          Choices.</small>
+      </div>
+      <div class="col-md-6 right-box">
+        <div class="row align-items-center">
+          <div class="header-text md-4">
+            <h2>Sign In</h2>
+            <p>Welcome!</p>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control form-control-lg bg-light fs-6" id="username" placeholder="Username"
+              aria-label="Username" aria-describedby="basic-addon1" required />
+          </div>
+          <div class="input-group mb-1">
+            <input type="password" class="form-control form-control-lg bg-light fs-6" id="password"
+              placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required />
+            <button class="btn btn-outline-secondary" type="button" id="toggle">
+              <img src="Images/view.png" alt="Show Password" id="show" />
+              <img src="Images/hide.png" alt="Hide Password" id="hide" />
+            </button>
+          </div>
+          <div class="input-group mb-5 d-flex justify-content-between">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="form-check" />
+              <label for="form-check" class="form-check-label text-secondary"><small>Remember Username</small></label>
             </div>
-            <div class="inputField">
-              <div>
-                <label for="name">Product ID:</label>
-                <input autocomplete="off" type="number" name="" id="identification" />
-              </div>
-              <div>
-                <label for="name">Product Name:</label>
-                <input autocomplete="off" type="text" name="" id="name" />
-              </div>
-              <div>
-                <label for="name">Product Price (PHP):</label>
-                <input autocomplete="off" type="text" name="" id="price" />
-              </div>
-              <div>
-                <label for="name">Product Description:</label>
-                <input autocomplete="off" type="text" name="" id="desc" />
-              </div>
+            <div class="forgot">
+              <small><a href="forgot.html">Forgot Password?</a></small>
             </div>
-          </form>
+          </div>
+          <div class="input-group mb-3">
+            <input type="submit" class="btn btn-lg btn-primary w-100 fs-6" id="sign" value="Sign In" />
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="submit" form="myForm" class="btn btn-primary submit" id="submit" role="button">
-            Add Product
+        <div class="input-group mb-3">
+          <button id="google" class="btn btn-lg btn-light w-100 fs-6">
+            <img src="Images/google.png" class="googil me-2" /><small>Sign In with Google</small>
           </button>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--View Modal-->
-  <div class="modal fade" id="viewForm" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Product Information</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="row">
+          <small style="text-align: center">Our Google Sign In function is under maintenance <br />We
+            apologize for the inconvenience<a href="#"></a></small>
         </div>
-        <div class="modal-body">
-          <form action="#" id="myForm">
-            <div class="card imgholder">
-              <i class="fa-solid fa-camera"></i>
-            </div>
-            <div class="inputField">
-              <div>
-                <label for="name">Product ID:</label>
-                <input type="number" name="" id="identification" disabled />
-              </div>
-              <div>
-                <label for="name">Product Name:</label>
-                <input type="text" name="" id="name" disabled />
-              </div>
-              <div>
-                <label for="name">Product Price (PHP):</label>
-                <input type="number" name="" id="price" disabled />
-              </div>
-              <div>
-                <label for="name">Product Description:</label>
-                <input type="text" name="" id="desc" disabled />
-              </div>
-              <div>
-                <label for="name">Product Seller:</label>
-                <input type="text" name="" id="seller" disabled />
-              </div>
-            </div>
-          </form>
+        <div class="row register">
+          <small style="text-align: center">Don't have an account?</small><a href="register.html">Register</a>
         </div>
       </div>
     </div>
   </div>
-  <!-- Delete modal content -->
-  <div class="modal fade" id="deleteForm" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header delete">
-          <h4 class="modal-title">Delete Product?</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="#" id="myForm">
-            <div class="confirm" id="card">
-              <div class="prodLabel">
-                <label for="name">Product ID:</label>
-                <input autocomplete="off" type="number" name="" id="deleteID" />
-              </div>
-              <div class="modal-footer">
-                <button type="submit" form="myForm" class="btn btn-primary deleteBtn" id="deleteBtn" role="button"
-                  onclick="remove()">
-                  Delete Product
-                </button>
-              </div>
-              <!-- Only show the icon -->
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End of Confirmation modal content -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script type="module">
     // Import the functions you need from the SDKs you need
-    /* import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"; */
-    /*       import {
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import {
       getDatabase,
       ref,
       get,
       child,
-    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js"; */
-    /* import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-          import { getStorage } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
-          import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
-*/
+    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      onAuthStateChanged,
+      sendEmailVerification,
+    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-      apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
-      authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
-      projectId: "simple-ecommerce-2ae23",
-      storageBucket: "simple-ecommerce-2ae23.appspot.com",
-      messagingSenderId: "649449198685",
-      appId: "1:649449198685:web:c305061725d287ab30e9b4",
-      measurementId: "G-R02NLXEX21",
+      apiKey: "AIzaSyARkCcxFb5rM0pH0srjwovPtdeVHBG3ngw",
+      authDomain: "shopsphere-6e423.firebaseapp.com",
       databaseURL:
-        "simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
+        "https://shopsphere-6e423-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "shopsphere-6e423",
+      storageBucket: "shopsphere-6e423.appspot.com",
+      messagingSenderId: "439601533462",
+      appId: "1:439601533462:web:aa77e0c383c1cb28429b37",
+      measurementId: "G-6H0R9JBWKK",
     };
-
     // Initialize Firebase
-    /* const app = initializeApp(firebaseConfig);
-          const analytics = getAnalytics(app);
-          const db = getDatabase(app);
-          const storage = getStorage(app);
-          const auth = getAuth(app); */
-    firebase.initializeApp(firebaseConfig);
-    var storage = firebase.storage();
-    var database = firebase.database();
-    var safeUsername;
-    var username;
-    var productIdToDelete;
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
 
-    function writeItemData(
-      itemImage,
-      itemID,
-      itemName,
-      itemPrice,
-      itemDescription
-    ) {
-      var itemData = {
-        itemID: itemID,
-        itemName: itemName,
-        itemPrice: itemPrice,
-        itemDescription: itemDescription,
-      };
+    //Fetch Database
+    const db = getDatabase(app);
 
-      const storageRef = storage.ref("items/" + itemID + ".jpg");
-      storageRef.put(itemImage).then(function (snapshot) {
-        snapshot.ref.getDownloadURL().then(function (downloadURL) {
-          itemData.imageUrl = downloadURL;
-          database
-            .ref("items/" + itemID)
-            .set(itemData)
-            .then(() => console.log("Data written to items"))
-            .catch((error) =>
-              console.error("Error writing data to items: ", error)
-            );
+    //Auth
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    let status = document.getElementById("status");
+    //Function to handle Google Login
+    const googleLogin = document.getElementById("google");
+    googleLogin.addEventListener("click", function () {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          sendEmailVerification(auth.currentUser).then(() => {
+            console.log("Email Verification Sent");
+          });
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const user = result.user;
+          console.log(user);
+          status.textContent = user.emailVerified;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
         });
-      });
-    }
-
-    document.querySelector(".submit").addEventListener("click", function () {
-      var itemImage = document.getElementById("imgInput").files[0];
-      var itemID = document.getElementById("identification").value;
-      var itemName = document.getElementById("name").value;
-      var itemPrice = document.getElementById("price").value;
-      var itemDescription = document.getElementById("desc").value;
-
-      if (
-        !itemImage ||
-        !itemID ||
-        !itemName ||
-        !itemPrice ||
-        !itemDescription
-      ) {
-        alert("Please fill in all fields");
-        return;
-      }
-
-      writeItemData(itemImage, itemID, itemName, itemPrice, itemDescription);
-
-      alert("Item has been successfully added!");
-
-      document.getElementById("myForm").reset();
     });
 
-    // Function to retrieve and display products
-    function displayProducts() {
-      const productsRef = database.ref("items");
-      productsRef.once("value", (snapshot) => {
-        const products = snapshot.val();
-        if (products) {
-          const tbody = document.getElementById("data");
-          tbody.innerHTML = ""; // Clear existing rows
-          Object.keys(products).forEach((productId) => {
-            const product = products[productId];
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                  <td>${productId}</td>
-                  <td><img src="${product.imageUrl}" width="50" height="50"/></td>
-                  <td>${product.itemName}</td>
-                  <td>${product.itemPrice}</td>
-                  <td>${product.itemDescription}</td>
-                  <td>
-                    <button class="btn btn-success view-product" data-bs-toggle="modal" data-bs-target="#viewForm" data-product-id="${productId}">
-                      <i class="fa-solid fa-eye"></i>
-                    </button>
-                    <button class="btn btn-primary edit-product" data-bs-toggle="modal" data-bs-target="#editForm" data-product-id="${productId}">
-                      <i class="fa-solid fa-pencil"></i>
-                    </button>
-                  </td>
-                `;
-            tbody.appendChild(row);
-          });
-        } else {
-          console.log("No products found");
+    // Function to handle "Remember Me" checkbox
+    document
+      .getElementById("sign")
+      .addEventListener("click", async function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const rememberMe = document.getElementById("form-check").checked;
+
+        // Check if either username or password is empty
+        if (username.trim() === "" || password.trim() === "") {
+          alert("Please fill in both username and password fields.");
+          return; // Stop execution if fields are empty
+        }
+
+        // Encode the username to remove forbidden characters
+        const encodedUsername = encodeURIComponent(username);
+
+        try {
+          const userSnapshot = await get(
+            child(ref(db), `user/${encodedUsername}`)
+          );
+          const userData = userSnapshot.val();
+          if (userData && userData.password === password) {
+            // Authentication successful
+            if (rememberMe) {
+              // Remember Me checkbox is checked, store flag in localStorage
+              localStorage.setItem("rememberedUser", username);
+            } else {
+              // Remember Me checkbox is not checked, clear stored flag
+              localStorage.removeItem("rememberedUser");
+            }
+            // Redirect to a new page
+            alert("Login Successful!");
+            window.location.href = "admin-home.html";
+          } else {
+            // Username or password doesn't exist
+            alert("Username or password is incorrect.");
+          }
+        } catch (error) {
+          console.error("Error signing in:", error);
+          alert("Error signing in. Please try again.");
         }
       });
-    }
 
-    // Call the function to display products when the page loads
-    window.onload = displayProducts;
-
-    function remove() {
-      const itemID = document.getElementById("deleteID").value;
-
-      // Get the imageURL associated with the itemID
-      database
-        .ref("items/" + itemID + "/imageUrl")
-        .once("value")
-        .then((snapshot) => {
-          const imageURL = snapshot.val();
-
-          // If imageURL is available, delete the image from storage
-          if (imageURL) {
-            // Construct the path of the image in storage
-            const storagePath = imageURL.split("?")[0].split("/").pop();
-            const storageRef = firebase.storage().ref().child(storagePath);
-
-            // Delete the image from storage
-            storageRef
-              .delete()
-              .then(() => {
-                console.log("Image deleted successfully from storage");
-              })
-              .catch((error) => {
-                console.error("Error deleting image from storage: ", error);
-              });
-          } else {
-            console.log("No image associated with the itemID");
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching imageURL from the database: ", error);
-        });
-
-      // Remove the item from the database
-      database
-        .ref("items/" + itemID)
-        .remove()
-        .then(() => {
-          console.log("Item deleted successfully from the database");
-          alert("Item has been successfully deleted!");
-        })
-        .catch((error) => {
-          console.error("Error deleting item from database: ", error);
-        });
-    }
+    // Check if "Remember Me" flag is set in localStorage when the page loads
+    window.addEventListener("DOMContentLoaded", (event) => {
+      const rememberedUser = localStorage.getItem("rememberedUser");
+      if (rememberedUser) {
+        // Populate the username input field with the remembered username
+        document.getElementById("username").value = rememberedUser;
+        // Check the "Remember Me" checkbox
+        document.getElementById("form-check").checked = true;
+      }
+    });
   </script>
-  <!-- <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-      import {
-        getDatabase,
-        ref,
-        get,
-        child,
-      } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-      import { getStorage } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
-        authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
-        projectId: "simple-ecommerce-2ae23",
-        storageBucket: "simple-ecommerce-2ae23.appspot.com",
-        messagingSenderId: "649449198685",
-        appId: "1:649449198685:web:c305061725d287ab30e9b4",
-        measurementId: "G-R02NLXEX21",
-        databaseURL:
-          "simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-
-      //Fetch Database
-      const db = getDatabase(app);
-
-      //Fetch Storage
-      const store = getStorage(app);
-
-      var fileText = document.querySelector(".fileText");
-      var progressBar = document.querySelector(".progressBar");
-      var progress = document.querySelector("progress");
-      var img = document.querySelector("img");
-      var percentVal;
-      var fileItem;
-      var fileName;
-
-      function getFile(e) {
-        fileItem = e.target.files[0];
-        fileName = fileItem.name;
-      }
-
-      function uploadData() {
-        console.log("Upload data function called");
-        let storageRef = firebase.storage().ref(); // Get a reference to the default storage bucket
-        let uploadTask = storageRef.child("images/" + fileName).put(fileItem); // Use child method to specify the path
-
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            console.log(snapshot);
-            percentVal = Math.floor(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            console.log(percentVal);
-            progressBar.innerHTML = percentVal + "%";
-            progress.style.width = percentVal + "%";
-          },
-          (error) => {
-            console.log("Error is ", error);
-          },
-          () => {
-            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-              console.log("URL", url);
-
-              if (url != "") {
-                img.setAttribute("src", url);
-                img.style.display = "block";
-
-                // Get other input field values
-                var productId = document.getElementById("identification").value;
-                var productName = document.getElementById("name").value;
-                var productPrice = document.getElementById("price").value;
-                var productDesc = document.getElementById("desc").value;
-                var productSeller = document.getElementById("seller").value;
-
-                // Save product data to Firebase Realtime Database
-                firebase
-                  .database()
-                  .ref("products")
-                  .push({
-                    productId: productId,
-                    productName: productName,
-                    productPrice: productPrice,
-                    productDesc: productDesc,
-                    productSeller: productSeller,
-                    imageUrl: url,
-                  })
-                  .then(() => {
-                    // Reset form fields
-                    document.getElementById("myForm").reset();
-                    // Close the modal
-                    const productModal = new bootstrap.Modal(
-                      document.getElementById("productForm")
-                    );
-                    productModal.hide();
-                    alert("Product added successfully!");
-                  })
-                  .catch((error) => {
-                    console.error("Error adding product:", error);
-                    alert("Error adding product. Please try again.");
-                  });
-              }
-            });
-          }
-        );
-      }
-
-      // Wait for the DOM content to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get the button element
-        const addButton = document.querySelector("#submit");
-
-        // Add event listener to the button
-        addButton.addEventListener("click", uploadData);
-      });
-    </script> -->
-  <!-- <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyBfQt95MFDEF0ZvyKjkW5ZB2hcxBxOfZrs",
-        authDomain: "simple-ecommerce-2ae23.firebaseapp.com",
-        databaseURL:
-          "https://simple-ecommerce-2ae23-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "simple-ecommerce-2ae23",
-        storageBucket: "simple-ecommerce-2ae23.appspot.com",
-        messagingSenderId: "649449198685",
-        appId: "1:649449198685:web:c305061725d287ab30e9b4",
-        measurementId: "G-R02NLXEX21",
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-
-      var fileText = document.querySelector(".fileText");
-      var progressBar = document.querySelector(".progressBar");
-      var progress = document.querySelector("progress");
-      var img = document.querySelector("img");
-      var percentVal;
-
-      // Function to upload data to Firebase storage and database
-      function uploadData() {
-        console.log("Upload data function called");
-        let storageRef = firebase.storage().ref("images/" + fileName);
-        let uploadTask = storageRef.put(fileItem);
-
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            console.log(snapshot);
-            percentVal = Math.floor(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            console.log(percentVal);
-            progressBar.innerHTML = percentVal + "%";
-            progress.style.width = percentVal + "%";
-          },
-          (error) => {
-            console.log("Error is ", error);
-          },
-          () => {
-            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-              console.log("URL", url);
-
-              if (url != "") {
-                img.setAttribute("src", url);
-                img.style.display = "block";
-
-                // Get other input field values
-                var productId = document.getElementById("identification").value;
-                var productName = document.getElementById("name").value;
-                var productPrice = document.getElementById("price").value;
-                var productDesc = document.getElementById("desc").value;
-                var productSeller = document.getElementById("seller").value;
-
-                // Save product data to Firebase Realtime Database
-                firebase
-                  .database()
-                  .ref("products")
-                  .push({
-                    productId: productId,
-                    productName: productName,
-                    productPrice: productPrice,
-                    productDesc: productDesc,
-                    productSeller: productSeller,
-                    imageUrl: url,
-                  })
-                  .then(() => {
-                    // Reset form fields
-                    document.getElementById("myForm").reset();
-                    // Close the modal
-                    const productModal = new bootstrap.Modal(
-                      document.getElementById("productForm")
-                    );
-                    productModal.hide();
-                    alert("Product added successfully!");
-                  })
-                  .catch((error) => {
-                    console.error("Error adding product:", error);
-                    alert("Error adding product. Please try again.");
-                  });
-              }
-            });
-          }
-        );
-      }
-    </script> -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-  <script src="https://kit.fontawesome.com/d9be89f74b.js" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
