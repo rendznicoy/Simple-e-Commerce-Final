@@ -1,220 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShopSphere</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/Simple-e-Commerce-PHP/style.css" />
-    <link
-      rel="shortcut icon"
-      href="/Simple-e-Commerce-PHP/Images/ShopSphere.png"
-      type="image/x-icon"
-    />
-  </head>
-  <body style="background-color: #f1f3f4; background-image: none">
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand me-auto" href="/Simple-e-Commerce-PHP/user.html"
-          ><img
-            src="/Simple-e-Commerce-PHP/Images/shopsphere-big.png"
-            alt="ShopSphere"
-            width="50"
-            height="50"
-            class="d-inline-block align-text-top"
-        /></a>
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              ShopSphere
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a
-                  class="nav-link mx-lg-2 active"
-                  aria-current="page"
-                  href="/Simple-e-Commerce-PHP/user.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Cart</a>
-              </li>
-            </ul>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSphere</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="Images/ShopSphere.png" type="image/x-icon" />
+</head>
+
+<body style="background-color: #f1f3f4; background-image: none">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-auto" href="user.html"><img src="Images/shopsphere-big.png" alt="ShopSphere" width="50"
+          height="50" class="d-inline-block align-text-top" /></a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            ShopSphere
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <!-- Sign In button -->
-        <a
-          href="/Simple-e-Commerce-PHP/user-sign-in.html"
-          id="sign-in-btn"
-          class="login-button"
-          >Sign In</a
-        >
-        <!-- Profile button -->
-        <button id="profile-btn" class="login-button">
-          <a href="/Simple-e-Commerce-PHP/profile.html"
-            ><i class="fa-solid fa-user"></i
-          ></a>
-        </button>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2 active" aria-current="page" href="user.html">Home</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Cart</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </nav>
-    <section class="main">
-      <div class="main-content">
-        <h1>
-          Welcome to ShopSphere<img
-            src="/Simple-e-Commerce-PHP/Images/shopsphere-big.png"
-            class="logo"
-          />
-        </h1>
-        <h3>Find the item you desire.</h3>
-        <p>Explore. Discover. ShopSphere: Your Gateway to Limitless Choices.</p>
-      </div>
-    </section>
-    <section class="bg">
-      <img src="/Simple-e-Commerce-PHP/Images/bg.png" alt="" class="bg-wall" />
-    </section>
-    <div class="grid-container">
-      <div class="column">
-        <div class="item"></div>
-        <div class="item"></div>
-      </div>
-      <div class="colum">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-      </div>
-      <div class="column">
-        <div class="item"></div>
-        <div class="item"></div>
-      </div>
+      <!-- Sign In button -->
+      <a href="user-sign-in.html" id="sign-in-btn" class="login-button">Sign In</a>
+      <!-- Profile button -->
+      <button id="profile-btn" class="login-button">
+        <a href="profile.html"><i class="fa-solid fa-user"></i></a>
+      </button>
     </div>
-    <footer class="footer">
-      <p>&copy; 2024 ShopSphere. All rights reserved.</p>
-    </footer>
-  </body>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
-  <script>
-    /*  // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import {
-      getDatabase,
-      ref,
-      set,
-    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"; */
+  </nav>
+  <section class="main">
+    <div class="main-content">
+      <h1>
+        Welcome to ShopSphere<img src="Images/shopsphere-big.png" class="logo" />
+      </h1>
+      <h3>Find the item you desire.</h3>
+      <p>Explore. Discover. ShopSphere: Your Gateway to Limitless Choices.</p>
+    </div>
+  </section>
+  <section class="bg">
+    <img src="Images/bg.png" alt="" class="bg-wall" />
+  </section>
+  <div class="grid-container">
+    <div class="column">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="colum">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="column">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2024 ShopSphere. All rights reserved.</p>
+  </footer>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script>
+  /*  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import {
+    getDatabase,
+    ref,
+    set,
+  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"; */
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyARkCcxFb5rM0pH0srjwovPtdeVHBG3ngw",
-      authDomain: "shopsphere-6e423.firebaseapp.com",
-      databaseURL:
-        "https://shopsphere-6e423-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "shopsphere-6e423",
-      storageBucket: "shopsphere-6e423.appspot.com",
-      messagingSenderId: "439601533462",
-      appId: "1:439601533462:web:aa77e0c383c1cb28429b37",
-      measurementId: "G-6H0R9JBWKK",
-    };
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyARkCcxFb5rM0pH0srjwovPtdeVHBG3ngw",
+    authDomain: "shopsphere-6e423.firebaseapp.com",
+    databaseURL:
+      "https://shopsphere-6e423-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "shopsphere-6e423",
+    storageBucket: "shopsphere-6e423.appspot.com",
+    messagingSenderId: "439601533462",
+    appId: "1:439601533462:web:aa77e0c383c1cb28429b37",
+    measurementId: "G-6H0R9JBWKK",
+  };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var database = firebase.database();
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
 
-    // Get a reference to the items in the database
-    var itemsRef = database.ref("items");
+  // Get a reference to the items in the database
+  var itemsRef = database.ref("items");
 
-    // Call checkAuthentication function when the page loads
-    window.onload = function () {
-      checkAuthentication();
-    };
+  // Call checkAuthentication function when the page loads
+  window.onload = function () {
+    checkAuthentication();
+  };
 
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        // User is signed in.
-        document.getElementById("username").textContent = user.username;
-        username = user.username;
-        safeUsername = user.username.replace(/\./g, ",");
-      } else {
-        // No user is signed in.
-        alert("Please sign in to view this page.");
-      }
-    });
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      document.getElementById("username").textContent = user.username;
+      username = user.username;
+      safeUsername = user.username.replace(/\./g, ",");
+    } else {
+      // No user is signed in.
+      alert("Please sign in to view this page.");
+    }
+  });
 
-    itemsRef.on("value", function (snapshot) {
-      var items = snapshot.val();
-      var gridContainer = document.querySelector(".grid-container");
-      gridContainer.innerHTML = "";
+  itemsRef.on("value", function (snapshot) {
+    var items = snapshot.val();
+    var gridContainer = document.querySelector(".grid-container");
+    gridContainer.innerHTML = "";
 
-      for (var itemID in items) {
-        var item = items[itemID];
+    for (var itemID in items) {
+      var item = items[itemID];
 
-        var columnDiv = document.createElement("div");
-        columnDiv.className = "column";
+      var columnDiv = document.createElement("div");
+      columnDiv.className = "column";
 
-        var itemDiv = document.createElement("div");
-        itemDiv.className = "item";
+      var itemDiv = document.createElement("div");
+      itemDiv.className = "item";
 
-        var img = document.createElement("img");
-        img.src = item.imageUrl;
+      var img = document.createElement("img");
+      img.src = item.imageUrl;
 
-        var h2 = document.createElement("h2");
-        h2.textContent = item.itemName;
+      var h2 = document.createElement("h2");
+      h2.textContent = item.itemName;
 
-        var p = document.createElement("a");
-        p.textContent = "PHP " + item.itemPrice + ".00";
+      var p = document.createElement("a");
+      p.textContent = "PHP " + item.itemPrice + ".00";
 
-        var d = document.createElement("p");
-        d.textContent = "Product Description: " + item.itemDescription;
+      var d = document.createElement("p");
+      d.textContent = "Product Description: " + item.itemDescription;
 
-        var addToCart = document.createElement("button");
-        addToCart.textContent = "Add to Cart";
+      var addToCart = document.createElement("button");
+      addToCart.textContent = "Add to Cart";
 
-        itemDiv.appendChild(img);
-        itemDiv.appendChild(h2);
-        itemDiv.appendChild(p);
-        itemDiv.appendChild(d);
-        itemDiv.appendChild(addToCart);
+      itemDiv.appendChild(img);
+      itemDiv.appendChild(h2);
+      itemDiv.appendChild(p);
+      itemDiv.appendChild(d);
+      itemDiv.appendChild(addToCart);
 
-        columnDiv.appendChild(itemDiv);
+      columnDiv.appendChild(itemDiv);
 
-        gridContainer.appendChild(columnDiv);
-      }
-    });
-  </script>
-  <script src="/Simple-e-Commerce-PHP/script.js"></script>
-  <script
-    src="https://kit.fontawesome.com/d9be89f74b.js"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"
-  ></script>
+      gridContainer.appendChild(columnDiv);
+    }
+  });
+</script>
+<script src="script.js"></script>
+<script src="https://kit.fontawesome.com/d9be89f74b.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>
